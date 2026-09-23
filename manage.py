@@ -160,7 +160,7 @@ def update_administration_route():
     Update schema/codelists/administrationRoute.csv.
     """
     # https://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration/
-    codes, not_selectable = hl7("RouteOfAdministration")
+    codes, _not_selectable = hl7("RouteOfAdministration")
 
     # "definition" is not used for Description, because it is the same as the "display", except for:
     #
@@ -186,7 +186,7 @@ def update_dosage_form():
     Update schema/codelists/dosageForm.csv from HL7.
     """
     # https://terminology.hl7.org/CodeSystem/v3-orderableDrugForm/
-    codes, not_selectable = hl7("orderableDrugForm")
+    codes, _not_selectable = hl7("orderableDrugForm")
 
     with csv_dump("dosageForm.csv", ["Code", "Title", "Description"]) as writer:
         for code in codes:
