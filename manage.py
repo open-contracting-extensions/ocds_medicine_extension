@@ -71,7 +71,7 @@ def edqm(email, password, url):
             document = parse(response)
             keys = document.xpath(".//strong/text()")
             values = [value.strip() for value in document.xpath('.//span[@class="span6"]/text()')]
-            properties = dict(zip(keys, values))
+            properties = dict(zip(keys, values, strict=True))
 
             if properties["Domain"] != "Veterinary only":
                 writer.writerow([properties["Term"], properties["Definition"]])
